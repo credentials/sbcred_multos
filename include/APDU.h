@@ -160,12 +160,21 @@
   if (Lc != (length)) { APDU_returnSW(SW_WRONG_LENGTH); }
 
 
+#define APDU_Return() \
+  __SW = (SW_NO_ERROR); \
+  __code(SYSTEM, 4)
+
 #define APDU_ReturnSW(sw) \
   __SW = (sw); \
   __code(SYSTEM, 4)
 
 #define APDU_ReturnSWLa(sw, len) \
   __SW = (sw); \
+  __La = (len); \
+  __code(SYSTEM, 4)
+
+#define APDU_ReturnLa(len) \
+  __SW = (SW_NO_ERROR); \
   __La = (len); \
   __code(SYSTEM, 4)
 

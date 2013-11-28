@@ -20,12 +20,23 @@
 #ifndef __sbcred_H
 #define __sbcred_H
 
+#include "ECC.h"
+
+typedef struct {
+  unsigned char id;
+  unsigned int length;
+  unsigned char value[sizeof(ECC_key_pair) + 4];
+  ECC_point signature;
+} SBC_attribute;
+
 void initialise(unsigned char *buffer);
 
-void personalise(void);
+void personalise(unsigned char *buffer);
 
-void getAttribute(void);
+unsigned int getAttribute(unsigned char *buffer);
 
-void getKey(void);
+unsigned int getKey(unsigned char *buffer);
+
+unsigned int computeDH(unsigned char *buffer);
 
 #endif // __sbcred_H

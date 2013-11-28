@@ -61,17 +61,17 @@ typedef struct {
 
 #define ECC_generate_keys(params, keys) \
 do { \
-  __push(params); \
-  __push(keys); \
+  __push((void*)(params)); \
+  __push((void*)(keys)); \
   __code(PRIM, PRIM_ECC_GENERATE_KEY_PAIR, 0x00); \
 } while (0)
 
 #define ECC_diffie_hellman(params, privateKey, publicKey, sharedKey) \
 do { \
-  __push(params); \
-  __push(privateKey); \
-  __push(publicKey); \
-  __push(sharedKey); \
+  __push((void*)(params)); \
+  __push((void*)(privateKey)); \
+  __push((void*)(publicKey)); \
+  __push((void*)(sharedKey)); \
   __code(PRIM, PRIM_ECC_ELLIPTIC_CURVE_DIFFIE_HELLMAN, 0x00); \
 } while (0)
 
