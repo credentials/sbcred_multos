@@ -40,7 +40,7 @@ typedef struct {
 
 typedef ECC_point ECC_public_key;
 
-typedef unsigned char ECC_private_key[ECC_KEY_BYTES];
+typedef unsigned char ECC_private_key[ECC_KEY_BYTES * 2];
 
 typedef struct {
   ECC_public_key publicKey;
